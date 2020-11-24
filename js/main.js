@@ -7,10 +7,8 @@ const app = new Vue({
   created(){
     axios.get("https://flynn.boolean.careers/exercises/api/array/music")
     .then( result => {
-      albumList = result.data.response;
-      this.cds = albumList;
-      console.log( this.cds );
-      return albumList;
+      this.cds =  result.data.response;
+      return result.data.response;
     })
     .catch( error => {
       console.log(error)
@@ -19,24 +17,37 @@ const app = new Vue({
   },
   methods:{
     filterByGenre(actualGenre){
+
       if ( actualGenre === "all" ) {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then( result => {
-          albumList = result.data.response;
-          this.cds = albumList;
-          console.log( this.cds );
-          return albumList;
+          this.cds =  result.data.response;
+          return result.data.response;
         })
         .catch( error => {
           console.log(error)
           this.errored = true
         } )
       }
+
       else {
-        this.cds = result.data.response.filter( (cd) => {
-          result.data.response === actualGenre;
+        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+        .then( result => {
+          console.log( result.data.response.filter( (item) =>{
+            item.genre.toLowerCase() === actualGenre.toLowerCase()
+          }) );
         })
+        .catch( error => {
+          console.log(error)
+          this.errored = true
+        } )
+        }
       }
     }
-  }
 });
+
+
+// this.cds =  result.data.response.filter( (cd) =>{
+//   cd.genre === actualGenre
+// } );
+// return this.cds;
