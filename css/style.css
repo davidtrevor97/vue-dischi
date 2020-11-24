@@ -1,0 +1,47 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  background-color: #15172b;
+}
+header{
+  height: 50px;
+  background-color: #363744;
+  width: 100%;
+}
+.app{
+  max-width: 95vw;
+  margin: auto;
+}
+.app ul{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.app ul img{
+  width: 100%;
+  min-height: 80px;
+}
+.app li{
+  width: 100px;
+  margin: 20px 20px;
+  padding: 5px   10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: white;
+  list-style: none;
+  background-color: #363744;
+}
+.app li > h4,
+.app li > h5,
+.app li > h6{
+  background-color: #363744;
+}
+.app li > h4{
+  margin: 5px 0 10px 0
+}
+.app li > h5,
+.app li > h6{
+  margin: 0 0 5px 0 ;
+  color: rgba(255,255,255,0.7)
+}
