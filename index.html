@@ -7,9 +7,18 @@
     </head>
   <body>
     <header>
-
+      <img src="./img/logo.png" alt="logo">
     </header>
     <div class="app">
+      <div class="selectContainer">
+        <span>Filter by genre:</span>
+        <select v-model="actualGenre" @change="filterByGenre(actualGenre)">
+          <option value="all">all</option>
+          <option value="rock">rock</option>
+          <option value="jazz">jazz</option>
+          <option value="metal">metal</option>
+        </select>
+      </div>
       <ul>
         <li v-for="cd in cds" >
           <img :src="cd.poster" :alt="cd.title">
